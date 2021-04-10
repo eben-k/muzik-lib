@@ -59,7 +59,7 @@ export interface ISpotifyTrack {
 
 export interface ISpotifyResultMeta {
   limit: number;
-  next: string;
+  next: string | null;
   offset: number;
   previous?: any;
   total: number;

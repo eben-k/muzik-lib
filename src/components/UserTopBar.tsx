@@ -6,6 +6,9 @@ import { IconButton } from '@material-ui/core';
 import { ExitToApp } from '@material-ui/icons';
 import { resetButton } from './mixins';
 import AppSearch from './AppSearch';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logoutUserAction } from '../store/actions/userActions';
 
 const Container = styled.div`
   width: 100%;
@@ -41,6 +44,8 @@ const Container = styled.div`
 
 const UserBar = () => {
   const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -64,7 +69,12 @@ const UserBar = () => {
         onSubmit={() => {}}
         placeholder="Search"
       />
-      <IconButton>
+      <IconButton
+        onClick={() => {
+          dispatch(logoutUserAction());
+          navigate('/login');
+        }}
+      >
         <ExitToApp />
         <Typography textColor="primary500" textStyle="sm14">
           Logout

@@ -5,6 +5,7 @@ import AppThemeProvider from './components/AppThemeProvider';
 import AttachAccessToken from './components/AttachAccessToken';
 import FirebaseProvider from './components/FirebaseProvider';
 import ReactQueryProvider from './components/ReactQueryProvider';
+import SyncLibrary from './components/SyncLibrary';
 import Routes from './routes';
 import store, { persistor } from './store';
 
@@ -14,6 +15,7 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <AttachAccessToken />
         <FirebaseProvider>
+          <SyncLibrary />
           <AppThemeProvider>
             <ReactQueryProvider>
               <Routes />

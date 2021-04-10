@@ -1,18 +1,34 @@
 import React, { useContext, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
+import { IconButton } from '@material-ui/core';
+import { NavigateBefore, NavigateNext } from '@material-ui/icons';
 import styled from 'styled-components';
 import { newReleasesService } from '../../services/searchService';
 import { FirebaseContext } from '../../components/FirebaseProvider';
 import NewReleaseCard from './NewReleaseCard';
 import { Typography } from '../../components/Typography';
+import { centerItem } from '../../components/mixins';
 
 const NewReleaseWrapper = styled.div`
   width: 100%;
   margin-bottom: 40px;
 
-  .mainTitle {
+  .titleNavBox {
     margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .navButtons {
+      ${centerItem};
+
+      .MuiIconButton-root {
+        &:hover {
+          background: none;
+        }
+      }
+    }
   }
 
   .releaseCardContainer {
@@ -54,14 +70,35 @@ const NewReleases = () => {
 
   return (
     <NewReleaseWrapper>
-      <Typography
-        className="mainTitle"
-        textStyle="sm18"
-        textColor="primary"
-        textTheme={{ weight: 600 }}
-      >
-        New Releases
-      </Typography>
+      <div className="titleNavBox">
+        <Typography
+          textStyle="sm18"
+          textColor="primary"
+          textTheme={{ weight: 600 }}
+        >
+          New Releases
+        </Typography>
+        <div className="navButtons">
+          <IconButton
+            disableRipple
+            disabled={offset === 0}
+            onClick={() => {
+              setOffset(offset - 4);
+            }}
+          >
+            <NavigateBefore />
+          </IconButton>
+          <IconButton
+            disableRipple
+            disabled={results.data?.albums.next === null}
+            onClick={() => {
+              setOffset(offset + 4);
+            }}
+          >
+            <NavigateNext />
+          </IconButton>
+        </div>
+      </div>
       <div className="releaseCardContainer">
         {albums.map((album) => (
           <NewReleaseCard
