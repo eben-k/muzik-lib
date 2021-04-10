@@ -17,3 +17,7 @@ export enum UserActions {
   GET_USER_DATA_SUCCESS = 'GET_USER_DATA_SUCCESS',
   GET_USER_DATA_ERROR = 'GET_USER_DATA_ERROR',
 }
+
+export enum LibraryActions {
+  SET_LIBRARY_DATA = 'SET_LIBRARY_DATA',
+}

@@ -63,7 +63,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard');
+      navigate('/home');
     }
   }, [dispatch, isAuthenticated, navigate]);
 
