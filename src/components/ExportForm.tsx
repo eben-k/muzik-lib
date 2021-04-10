@@ -12,7 +12,7 @@ const FormContainer = styled.div`
 
   @media (max-width: 1000px) {
     max-width: 300px;
-    }
+  }
 
   form {
     .formContent {
@@ -81,7 +81,7 @@ const ExportForm = ({ onClose }: { onClose: VoidFunction }) => {
       ),
     {
       onError: () => {
-        // do some error shit
+        // handle errors properly
         toast.error('Export failed');
       },
     }
