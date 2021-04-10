@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import AppThemeProvider from './components/AppThemeProvider';
 import FirebaseProvider from './components/FirebaseProvider';
+import Routes from './routes';
 import store, { persistor } from './store';
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <FirebaseProvider>
           <AppThemeProvider>
-            <div>Routes</div>
+            <Routes />
           </AppThemeProvider>
         </FirebaseProvider>
       </PersistGate>
