@@ -21,6 +21,10 @@ export const ItemsListWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
     grid-gap: 36px;
+
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    }
   }
 `;
 

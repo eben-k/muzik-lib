@@ -9,6 +9,10 @@ const UserDetailBox = styled.div`
   align-items: center;
   cursor: pointer;
   margin-right: auto;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 interface IUserAvatarProps {

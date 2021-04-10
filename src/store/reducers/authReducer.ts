@@ -11,12 +11,14 @@ import {
 export interface TAuthReducer {
   authData: IUserAuthResponse | null;
   isAuthenticated: boolean;
+  expires: number;
   error: Error | null;
 }
 
 const initialState: TAuthReducer = {
   authData: null,
   isAuthenticated: false,
+  expires: Date.now(),
   error: null,
 };
 
@@ -25,6 +27,7 @@ const authReducer = createReducer(initialState, (builder) =>
     .addCase(loginSuccessAction, (state, action) => {
       state.authData = action.payload;
       state.isAuthenticated = true;
+      state.expires = Date.now() + action.payload.expires_in * 100;
       state.error = null;
     })
     .addCase(loginErrorAction, (state, action) => {
@@ -39,7 +42,7 @@ export default persistReducer(
   {
     key: 'auth_data',
     storage: localForage,
-    whitelist: ['authData', 'isAuthenticated'],
+    whitelist: ['authData', 'isAuthenticated', 'expires'],
   },
   authReducer
 );

@@ -1,7 +1,9 @@
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from '../views/Login';
+import AttachAccessToken from '../components/AttachAccessToken';
 import HomePage from '../views/HomePage';
 import Library from '../views/Library';
+import Login from '../views/Login';
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
 const AppRoutes = () => {
   return (
     <BrowserRouter>
+      <AttachAccessToken />
       <App />
     </BrowserRouter>
   );

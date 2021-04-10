@@ -26,6 +26,7 @@ body {
   font-family: 'Montserrat';
   height: 100%;
   background-color: #ffffff;
+
 }
 
 #root {
@@ -43,7 +44,12 @@ a {
 html {
     height: 100%;
     font-size: 1rem;
-  }`;
+  }
+  
+  .toast-error {
+  background-color: #ff5359;
+  color: #ffffff;
+}`;
 
 const AppThemeProvider = (props: IProps) => {
   const size = useScreenSize();

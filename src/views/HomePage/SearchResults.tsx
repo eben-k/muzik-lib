@@ -11,6 +11,7 @@ import { createPortal } from 'react-dom';
 import { useQuery } from 'react-query';
 import AppSearch from '../../components/AppSearch';
 import { searchTracksService } from '../../services/searchService';
+import toast from 'toastr';
 
 const SearchResultsWrapper = styled.div`
   width: 100%;
@@ -75,7 +76,7 @@ const SearchResults = () => {
         await ref.remove();
       }
     } catch (error) {
-      // do some notifications
+      toast.error(error);
     }
   };
 

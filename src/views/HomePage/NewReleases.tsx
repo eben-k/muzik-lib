@@ -9,6 +9,7 @@ import { FirebaseContext } from '../../components/FirebaseProvider';
 import NewReleaseCard from './NewReleaseCard';
 import { Typography } from '../../components/Typography';
 import { centerItem } from '../../components/mixins';
+import toast from 'toastr';
 
 const NewReleaseWrapper = styled.div`
   width: 100%;
@@ -34,8 +35,12 @@ const NewReleaseWrapper = styled.div`
   .releaseCardContainer {
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
     grid-gap: 36px;
+    grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
+
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    }
   }
 `;
 
@@ -64,7 +69,7 @@ const NewReleases = () => {
         await ref.remove();
       }
     } catch (error) {
-      // do some notifications
+      toast.error(error);
     }
   };
 

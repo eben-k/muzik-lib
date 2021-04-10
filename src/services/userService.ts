@@ -24,9 +24,7 @@ export const loginUserService = async (code: string) => {
 };
 
 export const getUserDataService = async () => {
-  const response = await authHttp.get<ISpotifyUser>(
-    'https://api.spotify.com/v1/me'
-  );
+  const response = await authHttp.get<ISpotifyUser>('/me');
 
   return response.data;
 };

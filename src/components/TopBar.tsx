@@ -16,6 +16,11 @@ const Container = styled.div`
   grid-template-columns: 70px 1fr 150px 100px;
   grid-column-gap: 20px;
 
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-column-gap: 10px;
+  }
+
   .libraryLink {
     align-self: center;
 
