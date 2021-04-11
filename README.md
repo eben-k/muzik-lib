@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4fa794c1-571d-4fa1-989d-ab55bab13264/deploy-status)](https://app.netlify.com/sites/soulmuzik/deploys)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
