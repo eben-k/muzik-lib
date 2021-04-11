@@ -16,6 +16,11 @@ const SearchResultCardBox = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-column-gap: 15px;
+  }
+
   &:hover {
     background-color: ${(p) => p.theme.resolved.text.colors.primary};
     transition: 500ms linear;
@@ -35,6 +40,10 @@ const SearchResultCardBox = styled.div`
     grid-column-gap: 15px;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 550px) {
+      grid-column-gap: 10px;
+    }
 
     .songAvatar {
       width: 100%;
